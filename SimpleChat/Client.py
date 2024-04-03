@@ -6,7 +6,7 @@ s.connect((host,port))
 print("if you want to terminate the session write 'end' ")
 
 while True:
-    client_message= input("client: ").encode()
+    client_message= input("client: ").encode('utf-8')
     
     # Calculate the length of the message
     message_length = len(client_message)
@@ -27,11 +27,11 @@ while True:
         s.send(client_message)
     
     # To leve while loop write "end"
-    if client_message.decode() == "end" :
+    if client_message.decode('utf-8') == "end" :
          break
     
     x=s.recv(2048)
-    print("server:",x.decode())
+    print("server:",x.decode('utf-8'))
 
     
 s.close()
