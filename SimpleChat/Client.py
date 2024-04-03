@@ -3,6 +3,7 @@ s = socket(AF_INET,SOCK_STREAM)
 host='127.0.0.1'
 port= 40675
 s.connect((host,port))
+print("if you want to terminate the session write 'end' ")
 
 while True:
     client_message= input("client: ").encode()
@@ -25,12 +26,12 @@ while True:
         # If message fits within buffer size, send it as is
         s.send(client_message)
     
-
+    # To leve while loop write "end"
+    if client_message.decode() == "end" :
+         break
+    
     x=s.recv(2048)
     print("server:",x.decode())
-    
-    # To leve while loop write "end"
-    if x.decode() == "end" :
-         break
-s.close()
 
+    
+s.close()
