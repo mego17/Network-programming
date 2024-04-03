@@ -13,8 +13,12 @@ print('get connection from', addr)
 while True:
     x=c.recv(2048)
     print("client:",x.decode())
-    server_message= input("server: ").encode()
     
+    # To leve while loop write "end"
+    if x.decode() == "end" :
+        break
+        
+    server_message= input("server: ").encode()
     
     # Calculate the length of the message
     message_length = len(server_message)
@@ -35,8 +39,5 @@ while True:
         # If message fits within buffer size, send it as is
         c.send(server_message)
      
-    # To leve while loop write "end"
-    if x.decode() == "end" :
-        break
         
 c.close()
