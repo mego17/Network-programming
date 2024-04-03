@@ -12,13 +12,13 @@ print('get connection from', addr)
 
 while True:
     x=c.recv(2048)
-    print("client:",x.decode())
+    print("client:",x.decode('utf-8'))
     
     # To leve while loop write "end"
-    if x.decode() == "end" :
+    if x.decode('utf-8') == "end" :
         break
         
-    server_message= input("server: ").encode()
+    server_message= input("server: ").encode('utf-8')
     
     # Calculate the length of the message
     message_length = len(server_message)
