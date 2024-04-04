@@ -2,7 +2,7 @@ from socket import *
 s = socket(AF_INET,SOCK_STREAM)
 print("socket successfully created")
 host='127.0.0.1'
-port= 40675
+port= 6500
 s.bind((host,port))
 print("socket binded to ",port)
 s.listen(5)
