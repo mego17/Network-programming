@@ -1,7 +1,7 @@
 from socket import *
 s = socket(AF_INET,SOCK_STREAM)
 host='127.0.0.1'
-port= 40675
+port= 6500
 s.connect((host,port))
 print("if you want to terminate the session write 'end' ")
 
